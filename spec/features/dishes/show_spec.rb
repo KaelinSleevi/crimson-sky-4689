@@ -48,4 +48,12 @@ RSpec.describe 'When I visit the dishes show page' do
         
         expect(page).to have_content("Total Calories: 541")
     end
+
+    it 'And I see a link to view all ingredients that Chef uses' do
+        visit dish_path(@dish1)
+
+        expect(page).to have_link("View All Ingredients for Chef")
+        click_link "View All Ingredients for Chef"
+        expect(current_path).to eq(chef_path)
+    end
 end
