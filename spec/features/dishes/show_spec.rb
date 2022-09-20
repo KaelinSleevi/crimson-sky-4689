@@ -23,6 +23,8 @@ RSpec.describe 'When I visit the dishes show page' do
 
         expect(page).to have_content("Name: #{@dish1.name}")
         expect(page).to have_content("Description: #{@dish1.description}")
+        expect(page).to_not have_content("Name: #{@dish2.name}")
+        expect(page).to_not have_content("Description: #{@dish2.description}")
     end
 
     it 'And I see a list of ingredients for that dish' do
@@ -31,6 +33,8 @@ RSpec.describe 'When I visit the dishes show page' do
         expect(page).to have_content("Ingredients:")
         expect(page).to have_content("#{@ingredient1.name}")
         expect(page).to have_content("#{@ingredient3.name}")
+        expect(page).to_not have_content("#{@ingredient2.name}")
+        expect(page).to_not have_content("#{@ingredient4.name}")
     end
 
     it ' And I see the chefs name' do
@@ -41,7 +45,7 @@ RSpec.describe 'When I visit the dishes show page' do
 
     it 'And I see the total calorie count for that dish' do
         visit dish_path(@dish1)
-
-        expect(page).to have_content("Total Calories: 351")
+        
+        expect(page).to have_content("Total Calories: 541")
     end
 end
