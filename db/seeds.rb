@@ -16,7 +16,7 @@ ingredient3 = Ingredient.create!(name: 'white sauce', calories: 300)
 ingredient4 = Ingredient.create!(name: 'red sauce', calories: 280)
 
 DishIngredient.create!(dish_id: dish1.id, ingredient_id: ingredient1.id)
-DishIngredient.create!(dish_id: dish1.id, ingredient_id: ingredient2.id)
-DishIngredient.create!(dish_id: dish2.id, ingredient_id: ingredient3.id)
+DishIngredient.create!(dish_id: dish1.id, ingredient_id: ingredient3.id)
+DishIngredient.create!(dish_id: dish2.id, ingredient_id: ingredient2.id)
 DishIngredient.create!(dish_id: dish2.id, ingredient_id: ingredient4.id)
 
