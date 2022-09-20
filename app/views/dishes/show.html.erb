@@ -9,5 +9,6 @@
 
 
 <h2>Chef: <%= @dish.chef.name %></h2>
+ <%= link_to "View All Ingredients for Chef", chef_ingredients_path(@chef)%>
 
 <h4>Total Calories: <%= @dish.total_calories %></h4>

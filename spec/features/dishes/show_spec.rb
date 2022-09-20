@@ -54,6 +54,6 @@ RSpec.describe 'When I visit the dishes show page' do
 
         expect(page).to have_link("View All Ingredients for Chef")
         click_link "View All Ingredients for Chef"
-        expect(current_path).to eq(chef_path)
+        expect(current_path).to eq(chef_ingredients_path(@chef1))
     end
 end
