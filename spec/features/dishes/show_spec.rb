@@ -13,8 +13,8 @@ RSpec.describe 'When I visit the dishes show page' do
         @ingredient4 = Ingredient.create!(name: 'red sauce', calories: 280)
         
         DishIngredient.create!(dish_id: @dish1.id, ingredient_id: @ingredient1.id)
-        DishIngredient.create!(dish_id: @dish1.id, ingredient_id: @ingredient2.id)
-        DishIngredient.create!(dish_id: @dish2.id, ingredient_id: @ingredient3.id)
+        DishIngredient.create!(dish_id: @dish1.id, ingredient_id: @ingredient3.id)
+        DishIngredient.create!(dish_id: @dish2.id, ingredient_id: @ingredient2.id)
         DishIngredient.create!(dish_id: @dish2.id, ingredient_id: @ingredient4.id)
     end
 
@@ -30,12 +30,18 @@ RSpec.describe 'When I visit the dishes show page' do
 
         expect(page).to have_content("Ingredients:")
         expect(page).to have_content("#{@ingredient1.name}")
-        expect(page).to have_content("#{@ingredient2.name}")
+        expect(page).to have_content("#{@ingredient3.name}")
     end
 
     it ' And I see the chefs name' do
         visit dish_path(@dish1)
 
         expect(page).to have_content("Chef: #{@chef1.name}")
+    end
+
+    it 'And I see the total calorie count for that dish' do
+        visit dish_path(@dish1)
+
+        expect(page).to have_content("Total Calories: 351")
     end
 end
